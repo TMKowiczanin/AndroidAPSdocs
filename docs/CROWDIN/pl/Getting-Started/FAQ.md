@@ -1,30 +1,32 @@
 # FAQ for loopers
 
-How to add questions to the FAQ: Follow the these [instructions](../make-a-PR.md)
 
+Jak dodawać pytania do FAQ: Instruckję znajdziesz [tutaj](../make-a-PR.md)
 ## General
 
 ### Can I just download the AndroidAPS installation file?
+### Czy mogę sciągnąć instalator AndroidAPS?
+Nie. Nie został przygotowany plik instalacyjny dla aplikacji AndroidAPS. Aplikację musisz [zbudować](../Installing-AndroidAPS/Building-APK.md) samodzielnie. Powód takiej decyzji jest następujący:
 
-No. There is no downloadable apk file for AndroidAPS. You have to [build](../Installing-AndroidAPS/Building-APK.md) it yourself. Here's the reason why:
+Aplikacja AndroidAPS jest wykorzystywana do kontroli Twojej pompy insulinowej i kontrolowania dawkowania insuliny. Zgodnie z obecnymi przepisami w Europie systemy medyczne klasy IIa lub IIb wymagają odpowiedniej certyfikacji  poprzedzonej badaniami. Dystrybucja urządzeń tego typu bez odpowiednich certyfikatów jest nielegalna. Podobne regulacje obowiązują w pozostałych częściach świata. 
 
-AndroidAPS is used to control your pump and give insulin. Under current regulations, in Europe, all the systems class as IIa or IIb are medical devices that require regulatory approval (a CE mark) and that needs various studies and sign offs. Distributing an unregulated device is illegal. Similar regulations exist in other parts of the world.
+Regulacje te nie są ograniczone tylko do sprzedaży ale także do każdego sposobu ich dystrybucji (także rozpowszechniania za darmo).
+Tworzenie urządzeń medycznych na własny użytek to jedyny sposób na to, by było to legalne.
 
-This regulation is not restricted to sales (in the meaning of getting money for somthing) but applies to any way of distribution (even giving away for free). Building a medical device for yourself is the only way not being affected by these regulations.
+Jest to powód, dla którego aplikacja nie jest dostępna.
 
-That’s why apks aren’t available.
 
-### How to begin?
+### Jak zacząć?
+Na początku potrzebny będzie **sprzęt dający się zapętlić**:
 
-First of all, you have to **get loopable hardware components**:
 
-* A [supported insulin pump](Pump-Choices.md), 
-* an [Android smartphone](Phones.md) (Apple iOS is not supported by AndroidAPS - you can check [iOS Loop](https://loopkit.github.io/loopdocs/)) and 
-* a [continuous glucose monitoring system](../Configuration/BG-Source.md). 
+* [Obsługiwane pompy](Pump-Choices.md), 
+* [Smartpjony z Androidem](Phones.md) (Apple iOS nie jest obsługiwany przez AndroidAPS - możesz sprawdzić  [Pętle na iOS](https://loopkit.github.io/loopdocs/)) oraz
+* [system ciągłego monitorowania gligemi](../Configuration/BG-Source.md). 
 
-Secondly, you have to **setup your hardware**. See [example setup with step-by-step tutorial](Sample-Setup.md).
+Po drugie, musisz **skonfigurować twój sprzęt **. Zapoznaj się z  [przykładową konfiguracją krok po korku](Sample-Setup.md).
 
-Thirdly, you have to **setup your software components**: AndroidAPS and CGM/FGM source.
+Po trzecie, musisz **skonfigurować twoje oprogramowanie**: AndroidAPS oraz sygnały CGM/FGM .
 
 Fourthly, you have to learn and **understand the OpenAPS reference design to check your treatment factors**. The founding principle of closed looping is that your basal rate and carb ratio are accurate. All recommendations assume that your basal needs are met and any peaks or troughs you're seeing are a result of other factors which therefore require some one off adjustments (exercise, stress etc). The adjustments the closed loop can make for safety have been limited (see maximum allowed temporary basal rate in [OpenAPS Reference Design](https://openaps.org/reference-design/)), which means that you don't want to waste the allowed dosing on correcting a wrong underlying basal. If for example you are frequently low temping on the approach of a meal then it is likely your basal needs adjusting. You can use [autotune](http://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html#phase-c-running-autotune-for-suggested-adjustments-without-an-openaps-rig) to consider a large pool of data to suggest whether and how basals and/or ISF need to be adjusted, and also whether carb ratio needs to be changed. Or you can test and set your basal the [old fashioned way](http://integrateddiabetes.com/basal-testing/).
 
